@@ -131,7 +131,7 @@ Le projet peut être déployé facilement avec :
 1. Push sur GitHub
 2. Import du projet sur vercel.com
 3. Déploiement automatique
-
+lien :https://portfolio-tpid-j5eyjylox-hiba-2005s-projects.vercel.app/
 ---
 
 ## 👩‍💻 Auteur
