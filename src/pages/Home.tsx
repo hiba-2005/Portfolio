@@ -1,77 +1,52 @@
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { profile } from "@/data/profile";
+import SectionTitle from "@/components/SectionTitle";
+import { education } from "@/data/education";
 
-export default function Home() {
+function fmt(s?: string) {
+  if (!s) return "Présent";
+  const [y, m] = s.split("-");
+  return `${m}/${y}`;
+}
+
+export default function EducationPage() {
   return (
-    <>
-      {/* SEO */}
-      <Helmet>
-        <title>{profile.name} — Portfolio</title>
-        <meta
-          name="description"
-          content="Portfolio moderne avec React, TypeScript et projets web."
-        />
-      </Helmet>
+    <section>
+      <SectionTitle
+        title="Formations"
+        subtitle="Mes études, matières principales et points forts."
+      />
 
-      {/* SECTION PRINCIPALE */}
-      <section className="mx-auto max-w-3xl py-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {/* Petit titre */}
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
-            Portfolio professionnel
-          </p>
+      <ol className="relative border-s border-slate-200 dark:border-slate-700">
+        {education.map((e) => (
+          <li key={e.school + e.start} className="ms-6 pb-8">
+            <span className="absolute -start-[9px] mt-2 h-4 w-4 rounded-full bg-blue-600" />
 
-          {/* Nom */}
-          <h1 className="text-4xl font-bold leading-tight md:text-5xl">
-            {profile.name}
-          </h1>
+            <h3 className="text-lg font-semibold">
+              {e.degree}
+              {e.field ? ` — ${e.field}` : ""} @ {e.school}
+            </h3>
 
-          {/* Rôle */}
-          <p className="mt-3 text-xl text-slate-700 dark:text-slate-200">
-            {profile.role}
-          </p>
+            <p className="mt-1 text-sm text-slate-500">
+              {fmt(e.start)} — {fmt(e.end)}
+              {e.location ? ` • ${e.location}` : ""}
+            </p>
 
-          {/* Description */}
-          <p className="mt-5 text-slate-600 dark:text-slate-300">
-            {profile.about}
-          </p>
+            {e.courses?.length ? (
+              <p className="mt-3 text-sm text-slate-700 dark:text-slate-300">
+                <span className="font-medium">Cours :</span>{" "}
+                {e.courses.slice(0, 5).join(", ")}
+              </p>
+            ) : null}
 
-          {/* Boutons */}
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              to="/projects"
-              className="rounded-xl bg-blue-600 px-5 py-2 text-white transition hover:bg-blue-700"
-            >
-              Voir mes projets
-            </Link>
-
-            <Link
-              to="/contact"
-              className="rounded-xl border px-5 py-2 transition hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-900"
-            >
-              Me contacter
-            </Link>
-          </div>
-
-          {/* Skills */}
-          <div className="mt-8 flex flex-wrap gap-2">
-            {profile.skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full bg-slate-100 px-3 py-1 text-sm dark:bg-slate-800"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-    </>
+            {e.highlights?.length ? (
+              <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 dark:text-slate-300">
+                {e.highlights.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 }
