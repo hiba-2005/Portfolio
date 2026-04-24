@@ -1,3 +1,4 @@
+
 # 🌐 Portfolio React Pro (Vite + TypeScript)
 
 ## 📌 Description
@@ -116,6 +117,8 @@ npm run format    # Formatter le code
 * projets réalisés
 * expériences et stages
 * certifications avec badges
+* 
+https://github.com/user-attachments/assets/ddc40834-c520-48d8-a886-6e462c627666
 
 ---
 
