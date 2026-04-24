@@ -1,73 +1,156 @@
-# React + TypeScript + Vite
+# 🌐 Portfolio React Pro (Vite + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Description
 
-Currently, two official plugins are available:
+Ce projet est un **portfolio personnel moderne** développé avec **React, TypeScript et Tailwind CSS**.
+Il permet de présenter mon profil, mes compétences, mes projets, mes formations et mes certifications de manière claire et professionnelle.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🎯 Objectifs
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Créer une application React moderne avec **Vite + TypeScript**
+* Structurer un projet propre et maintenable
+* Utiliser **Tailwind CSS** pour un design responsive
+* Ajouter une navigation multi-pages avec **React Router**
+* Centraliser les données (profil, projets, certifications)
+* Déployer le projet en ligne (Vercel)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technologies utilisées
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* ⚛️ React
+* 🟦 TypeScript
+* ⚡ Vite
+* 🎨 Tailwind CSS
+* 🔀 React Router DOM
+* 🎞️ Framer Motion (animations)
+* 🧠 React Helmet Async (SEO)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Structure du projet
+
+```
+src/
+│
+├── app/              # Layout et router
+├── components/       # Composants réutilisables
+├── data/             # Données (profil, projets, certifs…)
+├── pages/            # Pages principales
+│
+├── App.tsx
+├── main.tsx
+└── index.css
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📄 Pages disponibles
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* 🏠 Home (Accueil)
+* 💻 Projects (Projets)
+* 📊 Experience (Parcours)
+* 🎓 Education (Formations)
+* 🏅 Certifications
+* 📩 Contact
+
+---
+
+## 🚀 Installation
+
+### 1️⃣ Cloner le projet
+
+```bash
+git clone https://github.com/ton-username/mon-portfolio.git
+cd mon-portfolio
 ```
+
+### 2️⃣ Installer les dépendances
+
+```bash
+npm install
+```
+
+### 3️⃣ Lancer le projet
+
+```bash
+npm run dev
+```
+
+👉 Ouvrir : http://localhost:5173
+
+---
+
+## 📦 Scripts disponibles
+
+```bash
+npm run dev       # Lancer le serveur
+npm run build     # Build production
+npm run preview   # Prévisualiser le build
+npm run lint      # Vérifier le code
+npm run format    # Formatter le code
+```
+
+---
+
+## 🎨 Fonctionnalités
+
+* ✔ Design moderne et responsive
+* ✔ Mode sombre / clair 🌙
+* ✔ Animation avec Framer Motion
+* ✔ Filtrage des certifications
+* ✔ SEO avec React Helmet
+* ✔ Données centralisées
+* ✔ Navigation fluide
+
+---
+
+## 📸 Aperçu
+
+👉 Portfolio professionnel avec :
+
+* présentation personnelle
+* compétences techniques
+* projets réalisés
+* expériences et stages
+* certifications avec badges
+
+---
+
+## 🌍 Déploiement
+
+Le projet peut être déployé facilement avec :
+
+### 🔹 Vercel
+
+1. Push sur GitHub
+2. Import du projet sur vercel.com
+3. Déploiement automatique
+
+---
+
+## 👩‍💻 Auteur
+
+**Hiba Ouirouane**
+Étudiante en informatique
+📍 Maroc
+
+---
+
+## 📬 Contact
+
+* 📧 Email : hiba.ouirouane.05@gmail.com
+
+
+* 💼 LinkedIn :https://www.linkedin.com/in/hiba-ouirouane-b23033318/
+* 💻 GitHub : https://github.com/hiba-2005
+
+---
+
+## ⭐ Remarque
+
+Ce projet a été réalisé dans le cadre d’un apprentissage en développement Front-End avec React.
+
+---
