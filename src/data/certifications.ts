@@ -2,9 +2,13 @@ export type Certification = {
   title: string;
   issuer: string;
   issueDate: string;
+  expiryDate?: string;
+  credentialUrl?: string;
   skills?: string[];
+  tags?: string[];
   image?: string;
-  status?: "active";
+  imageAlt?: string;
+  status?: "active" | "expired" | "revoked";
 };
 
 export const certifications: Certification[] = [
