@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import RootLayout from "@/app/RootLayout";
 import Home from "@/pages/Home";
 import Projects from "@/pages/Projects";
@@ -13,6 +13,10 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <Home /> },
+
+      //  Redirection si route inconnue
+      { path: "*", element: <Navigate to="/" /> },
+
       { path: "projects", element: <Projects /> },
       { path: "experience", element: <Experience /> },
       { path: "education", element: <EducationPage /> },

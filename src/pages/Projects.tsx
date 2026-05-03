@@ -1,62 +1,84 @@
 import SectionTitle from "@/components/SectionTitle";
 import { projects } from "@/data/projects";
+import { Code2, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
     <section>
       <SectionTitle
         title="Projets"
-        subtitle="Une sélection de travaux académiques et personnels."
+        subtitle="Une sélection de mes projets académiques et personnels."
       />
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((p) => (
-          <article
+          <motion.article
             key={p.title}
-            className="rounded-2xl border p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            whileHover={{ y: -8 }}
+            className="group rounded-3xl border bg-white p-6 shadow-sm transition hover:shadow-xl dark:border-slate-800 dark:bg-slate-950"
           >
-            <p className="text-sm text-slate-500">{p.period}</p>
-            <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
+            {/* Header */}
+            <div className="flex items-center justify-between">
+              <p className="text-sm text-slate-500">{p.period}</p>
+            </div>
 
+            {/* Title */}
+            <h3 className="mt-3 text-lg font-bold leading-tight">
+              {p.title}
+            </h3>
+
+            {/* Summary */}
             <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
               {p.summary}
             </p>
 
+            {/* Details */}
+            {p.details && (
+              <p className="mt-3 text-xs leading-6 text-slate-500 dark:text-slate-400">
+                {p.details}
+              </p>
+            )}
+
+            {/* Tags */}
             <div className="mt-4 flex flex-wrap gap-2">
               {p.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-slate-100 px-3 py-1 text-xs dark:bg-slate-800"
+                  className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-950 dark:text-blue-300"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="mt-5 flex gap-4 text-sm">
-              {p.link && (
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-blue-600 underline underline-offset-4 dark:text-blue-400"
-                >
-                  Démo
-                </a>
-              )}
-
+            {/* Buttons */}
+            <div className="mt-6 flex gap-3">
               {p.repo && (
                 <a
                   href={p.repo}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-blue-600 underline underline-offset-4 dark:text-blue-400"
+                  className="flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium transition hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-900"
                 >
+                  <Code2 size={16} />
                   Code
                 </a>
               )}
+
+              {p.link && (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
+                >
+                  <ExternalLink size={16} />
+                  Demo
+                </a>
+              )}
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>

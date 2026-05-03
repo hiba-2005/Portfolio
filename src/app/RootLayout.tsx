@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import ThemeToggle from "@/components/ThemeToggle";
+
 
 const navItems = [
   { to: "/projects", label: "Projets" },
@@ -34,7 +34,7 @@ export default function RootLayout() {
                 {item.label}
               </NavLink>
             ))}
-            <ThemeToggle />
+           
           </div>
         </nav>
       </header>

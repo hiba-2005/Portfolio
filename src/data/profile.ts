@@ -2,7 +2,7 @@ export const profile = {
   name: "Hiba Ouirouane",
   role: "Étudiante en informatique",
   location: "Maroc",
-  email: "hiba.ouirouane.05@example.com",
+  email: "hiba.ouirouane.05@gmail.com",
  about:
   "Étudiante en informatique passionnée par le développement Front-End. Je m’intéresse particulièrement à la création d’interfaces web modernes, responsives et faciles à utiliser. À travers mes projets, je cherche à améliorer mes compétences en React, TypeScript et design d’interface.",
 
