@@ -10,20 +10,30 @@ const navItems = [
 
 export default function RootLayout() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <NavLink to="/" className="text-xl font-black tracking-tight">
-            Hiba<span className="text-blue-400">Portfolio</span>
+    <div className="min-h-screen bg-gradient-to-br from-[#020617] via-[#08143a] to-[#1e1b4b] text-white">
+      
+      {/* HEADER */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#020617]/90 backdrop-blur-xl">
+        
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+          
+          {/* LOGO */}
+          <NavLink
+            to="/"
+            className="text-2xl font-black tracking-tight"
+          >
+            <span className="text-white">Hiba</span>
+            <span className="text-blue-400">Portfolio</span>
           </NavLink>
 
-          <div className="hidden items-center gap-3 md:flex">
+          {/* MENU */}
+          <div className="flex flex-wrap items-center justify-end gap-2 md:gap-5">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  `rounded-full px-4 py-2 text-sm font-medium transition ${
+                  `rounded-full px-4 py-2 text-sm font-semibold transition-all ${
                     isActive
                       ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
                       : "text-slate-300 hover:bg-white/10 hover:text-white"
@@ -37,13 +47,10 @@ export default function RootLayout() {
         </nav>
       </header>
 
-      <main className="mx-auto max-w-7xl px-6 py-12">
+      {/* MAIN */}
+      <main className="mx-auto max-w-7xl px-4 py-10">
         <Outlet />
       </main>
-
-      <footer className="border-t border-white/10 py-6 text-center text-sm text-slate-400">
-        © {new Date().getFullYear()} • Hiba Ouirouane
-      </footer>
     </div>
   );
 }
