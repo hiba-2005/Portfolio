@@ -6,53 +6,78 @@ export default function Experience() {
   return (
     <section>
       <SectionTitle
-        title="Expérience"
-        subtitle="Mes stages, responsabilités et compétences pratiques."
+        title="Expériences"
+        subtitle="Mes stages, expériences professionnelles et compétences pratiques."
       />
 
-      <div className="relative border-l border-slate-200 dark:border-slate-800 space-y-10 pl-6">
+      <div className="grid gap-8 lg:grid-cols-2">
         {experiences.map((item, index) => (
           <motion.article
             key={index}
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="relative rounded-3xl border bg-white p-6 shadow-sm transition hover:shadow-xl dark:bg-slate-950 dark:border-slate-800"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            whileHover={{ y: -8 }}
+            className="
+              overflow-hidden rounded-[30px]
+              border border-white/10
+              bg-white/10
+              backdrop-blur-xl
+              shadow-2xl
+            "
           >
-            {/* Dot */}
-            <span className="absolute -left-[34px] top-6 h-4 w-4 rounded-full bg-blue-600 border-4 border-white dark:border-slate-950"></span>
+            {/* IMAGE */}
+            {item.image && (
+              <div className="h-56 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.company}
+                  className="h-full w-full object-cover transition duration-500 hover:scale-110"
+                />
+              </div>
+            )}
 
-            {/* Header */}
-            <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-bold">{item.role}</h3>
+            {/* CONTENT */}
+            <div className="p-7">
+              <p className="text-sm font-medium text-blue-300">
+                {item.period}
+              </p>
 
-              <p className="text-sm font-medium text-blue-600">
+              <h3 className="mt-2 text-2xl font-bold text-white">
+                {item.role}
+              </h3>
+
+              <p className="mt-1 text-lg text-blue-200">
                 {item.company}
               </p>
 
-              <p className="text-xs text-slate-500">
-                {item.period} • {item.location}
+              <p className="mt-1 text-sm text-slate-400">
+                {item.location}
               </p>
-            </div>
 
-            {/* Description */}
-            <p className="mt-4 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-              {item.description}
-            </p>
+              <p className="mt-5 leading-7 text-slate-300">
+                {item.description}
+              </p>
 
-            {/* Skills */}
-            {item.skills && (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {item.skills.map((skill) => (
+              {/* SKILLS */}
+              <div className="mt-6 flex flex-wrap gap-3">
+                {item.skills?.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-950 dark:text-blue-300"
+                    className="
+                      rounded-full
+                      border border-blue-400/20
+                      bg-blue-500/10
+                      px-4 py-2
+                      text-xs font-semibold
+                      text-blue-200
+                    "
                   >
                     {skill}
                   </span>
                 ))}
               </div>
-            )}
+            </div>
           </motion.article>
         ))}
       </div>

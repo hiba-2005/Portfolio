@@ -19,23 +19,22 @@ export default function CertificationsPage() {
 
   return (
     <section>
-      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <SectionTitle
           title="Certifications"
-          subtitle="Mes certificats et compétences validées."
+          subtitle="Mes certificats, badges et compétences validées."
         />
 
         <input
           type="text"
-          placeholder="Filtrer : Python, SQL, Java..."
+          placeholder="Filtrer : React, Java, Python..."
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          className="w-full rounded-xl border px-4 py-2 md:w-80"
-          aria-label="Filtrer les certifications"
+          className="w-full rounded-2xl border border-white/10 bg-white/10 px-5 py-3 text-white placeholder:text-slate-400 outline-none backdrop-blur-xl focus:border-blue-400 md:w-96"
         />
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {list.map((c) => (
           <CertificationCard key={c.title + c.issueDate} c={c} />
         ))}
